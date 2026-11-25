@@ -6,7 +6,7 @@ public class CheetosDispenser extends SnackDispenseHandler {
     boolean handle(Snack snack) {
         // This handler only deals with Cheetos
         if (snack.getName().equals("Cheetos")) {
-            // [CLAUDE] Dispense only if there is quantity left; never pass Cheetos down the chain
+            // Dispense only if there is quantity left; never pass Cheetos down the chain
             if (snack.getQuantity() > 0) {
                 snack.decreaseQuantity();
                 return true;

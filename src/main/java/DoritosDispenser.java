@@ -6,7 +6,7 @@ public class DoritosDispenser extends SnackDispenseHandler {
     boolean handle(Snack snack) {
         // This handler only deals with Doritos
         if (snack.getName().equals("Doritos")) {
-            // [CLAUDE] Dispense only if there is quantity left; never pass Doritos down the chain
+            // Dispense only if there is quantity left; never pass Doritos down the chain
             if (snack.getQuantity() > 0) {
                 snack.decreaseQuantity();
                 return true;
