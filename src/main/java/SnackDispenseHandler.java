@@ -1,5 +1,5 @@
 public abstract class SnackDispenseHandler {
-    protected SnackDispenseHandler handler;
+    protected SnackDispenseHandler next;
     public SnackDispenseHandler(SnackDispenseHandler next) {}
-    abstract boolean handle(Snack s);
+    abstract boolean handle(Snack snack);
 }
