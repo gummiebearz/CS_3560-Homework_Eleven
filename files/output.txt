@@ -1,0 +1,36 @@
+=== 1. Buy Coke with exact money ===
+--- Coke ---
+  Machine state: Idle
+  Quantity left: 4
+
+=== 2. Buy Pepsi with too little money, then enough ===
+--- Pepsi ---
+  Machine state: WaitingForMoney
+  Quantity left: 5
+--- Pepsi ---
+  Machine state: Idle
+  Quantity left: 4
+
+=== 3. Buy Cheetos with more than enough money ===
+--- Cheetos ---
+  Machine state: Idle
+  Quantity left: 2
+
+=== 4. Buy KitKat (request goes through most of the chain) ===
+--- KitKat ---
+  Machine state: Idle
+  Quantity left: 3
+
+=== 5. Buy the last Snickers (quantity hits 0) ===
+--- Snickers ---
+  Machine state: Idle
+  Quantity left: 0
+
+=== 6. Buy Snickers again (out of stock, money returned) ===
+--- Money held ---
+  $1.25
+--- Money held ---
+  $0.00
+--- Snickers ---
+  Machine state: Idle
+  Quantity left: 0
