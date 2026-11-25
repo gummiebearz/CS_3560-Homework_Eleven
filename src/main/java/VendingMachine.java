@@ -55,7 +55,7 @@ public class VendingMachine {
     }
 
     public double getInsertedMoney() {
-        return 0.0;
+        return this.insertedMoney;
     }
 
     public SnackDispenseHandler getDispenseHandler() {
