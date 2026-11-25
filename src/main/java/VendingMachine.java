@@ -7,20 +7,58 @@ public class VendingMachine {
     private double insertedMoney;
     private SnackDispenseHandler dispenseHandler;
 
-    public VendingMachine(List<Snack> availableSnacks, SnackDispenseHandler dispenseHandler) {}
+    public VendingMachine(List<Snack> availableSnacks, SnackDispenseHandler dispenseHandler) {
+        // Store the inventory and chain head; the machine starts in Idle
+        this.availableSnacks = availableSnacks;
+        this.dispenseHandler = dispenseHandler;
+        this.state = new Idle();
+    }
+
     void setState(StateOfVendingMachine state) {
         this.state = state;
     }
-    StateOfVendingMachine getState() { return this.state; }
-    public Snack getSelectedSnack() { return this.selectedSnack; }
-    public void selectSnack(Snack snack) {}
-    public void insertMoney(double amount) {}
-    public void dispenseSnack() {}
+
+    StateOfVendingMachine getState() {
+        return this.state;
+    }
+
+    public Snack getSelectedSnack() {
+        return this.selectedSnack;
+    }
+
+    public void selectSnack(Snack snack) {
+        // Delegate to the current state
+        this.state.selectSnack(this, snack);
+    }
+
+    public void insertMoney(double amount) {
+        // Delegate to the current state
+        this.state.insertMoney(this, amount);
+    }
+
+    public void dispenseSnack() {
+        // Delegate to the current state
+        this.state.dispenseSnack(this);
+    }
+
     void setSelectedSnack(Snack snack) {
         this.selectedSnack = snack;
     }
-    void setInsertedMoney(double amt) {}
-    void returnMoney() {}
-    public double getInsertedMoney() { return 0.0; }
-    public SnackDispenseHandler getDispenseHandler() { return null; }
+
+    void setInsertedMoney(double amount) {
+        this.insertedMoney = amount;
+    }
+
+    void returnMoney() {
+        // Giving the money back so the machine no longer holds any
+        this.insertedMoney = 0.0;
+    }
+
+    public double getInsertedMoney() {
+        return 0.0;
+    }
+
+    public SnackDispenseHandler getDispenseHandler() {
+        return this.dispenseHandler;
+    }
 }
