@@ -3,19 +3,27 @@ public class Snack {
     private final double price;
     private int quantity;
 
-    public Snack(String name, double price, int quantity) {}
+    public Snack(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
     public double getPrice() {
-        return 0.0;
+        return this.price;
     }
 
     public int getQuantity() {
-        return -1;
+        return this.quantity;
     }
 
-    public void decreaseQuantity() {}
+    public void decreaseQuantity() {
+        if(this.quantity > 0) {
+            this.quantity -= 1;
+        }
+    }
 }
